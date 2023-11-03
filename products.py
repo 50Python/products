@@ -14,5 +14,8 @@ while True:
 
 print('目前商品有: ', products[0][0], products[0][1])
 print('目前商品有: ', products[1][0], products[1][1])
+print('目前商品有: ', products)
 
+for p in products:
+	print(p[0], '的價格是', p[1])
 
