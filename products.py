@@ -12,13 +12,14 @@ while True:
     #p =[name, price]
     products.append([name, price])
 
-print('目前商品有: ', products[0][0], products[0][1])
-print('目前商品有: ', products[1][0], products[1][1])
-print('目前商品有: ', products)
+#print('目前商品有: ', products[0][0], products[0][1])
+#print('目前商品有: ', products[1][0], products[1][1])
+#print('目前商品有: ', products)
 
-#for p in products:
-	#print(p[0], '的價格是', p[1])
+for p in products:
+	print(p[0], '的價格是', p[1])
 
-with open ('product_list.csv', 'w') as f:
-	for p in products:
-		f.write(p[0] + ',' + p[1]+ '\n')
+with open ('product_list.csv', 'w', encoding = 'utf-8') as f: # with 裡面檔案開啟
+    f.write('商品,價格\n')
+    for p in products:
+        f.write(p[0] + ',' + p[1]+ '\n') # 這個要寫在with裡面
