@@ -1,21 +1,20 @@
 import os
 
-
 #讀取檔案
-
 products = []
-
-if os.path.isfile('product_list.csv'):
+if os.path.isfile('product_list.csv'): # 檢查指定的檔案在不在
     print('資料系統正確')
-    with open('product_list.csv', 'r', encoding = 'utf-8') as f:
-        for line in f:
-            if '商品,價格' in line: # 如果商品、價格出現在讀取的字串內
-                continue # 忽略這一次、跳到下一回再開始
-            name, price = line.strip().split(',') #strip()清楚\n , line.spilt 遇到逗點就切割
-            products.append([name, price])
-    print(products)
 else:
-    print('無存檔資料')
+    print('無存檔資料、請確認!')
+    exit()
+
+with open('product_list.csv', 'r', encoding = 'utf-8') as f:
+    for line in f:
+        if '商品,價格' in line: # 如果商品、價格這兩個字串出現在讀取的字串內
+            continue # 忽略這一次、跳到下一回再開始
+        name, price = line.strip().split(',') #strip()清楚\n , line.spilt 遇到逗點就切割
+        products.append([name, price])
+print(products)
 
 # 使用者輸入
 while True:
